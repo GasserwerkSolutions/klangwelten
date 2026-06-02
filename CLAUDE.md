@@ -67,12 +67,34 @@ in `index.html`. Beide teilen dieselben Tokens und Komponenten-Klassen.
 
 ### Farben (Tokens in `:root`)
 
-- `--paper #f7efe3` (Hintergrund), `--surface #fffaf2`, `--cream #fbf1df`
-- `--ink #2f241b` (Text), `--muted #6b5d4f`
-- `--forest #8a5b32` / `--forest-dark #3a291c` (Brand-Braun, CTA), `--gold #c89135`,
-  `--clay #8a5b32` (Akzent/Eyebrow)
-- Warmes Holz-/Lehm-Schema durchgängig; Hero/Subhero/Sound-Band/CTA mit dunklen
-  Holz-Overlays über Foto-Hintergründen.
+Konzept: **warmes Grundgerüst + dezenter Blau-Akzent** (Stand 2026-06-02, vorher
+reines Holz/Braun — bewusst entsättigt und mit Slate-Blau ergänzt).
+
+- **Grundgerüst (warm, neutral):** `--paper #f6f1e9` (Hintergrund), `--surface #fffdf9`,
+  `--cream #faf4ea`, `--ink #2f2922` (Text), `--muted #6e655b`, `--border #e0d8c9`.
+- **Buttons (warm, taupe):** `--forest #77654d` / `--forest-dark #4a4138` — bleiben
+  bewusst warm. Auf den dunklen Flächen (Hero/Sound-Band/CTA) ist der Primary-Button
+  invertiert (weiß, Text `--accent-dark`), sonst verschwände Taupe auf Navy.
+- **Blau-Akzent:** `--accent #3a6491` / `--accent-dark #2f5176` (Links, `:focus-visible`,
+  Nav-Hover, `card__more`) und `--clay #3a6491` (Eyebrows, `card__meta`, `step__num`,
+  auf hellem Grund). `--gold #9db8d4` ist trotz Namens ein **helles Slate-Blau** für
+  Labels auf den dunklen Flächen (On-Dark-Eyebrows, Footer-Titel, Soundbite-Label).
+- **Dunkelflächen = Slate-Navy:** Hero/Subhero-Basis `#1f3a5c`, Sound-Band
+  `#1f3a5c→#33567e`, CTA `#2f5176→#3a6491`, Footer `#1c2530`. Overlays sind kühle
+  Navy-Gradienten über den Foto-Hintergründen.
+- Alle Kombinationen sind WCAG-AA-geprüft (Text/Akzente ≥ 4.5:1).
+
+### Layout-System (Spacing + Grid)
+
+- **Spacing-Scale (4/8-Rhythmus), Tokens `--s-1`…`--s-10`:** 4 · 8 · 12 · 16 · 24 ·
+  32 · 48 · 64 · 96 · 128 px. Für neue Abstände diese Tokens nutzen.
+- **`.grid-12`** — 12-Spalten-Grid (`repeat(12,minmax(0,1fr))`, `gap:var(--s-5)`) mit
+  Span-Utilities `.col-1`…`.col-12`. Unter 768px stapeln alle Spalten (`grid-column:1/-1`).
+  Live im Einsatz: „Warum Klang"-Karten auf der Startseite (3× `.col-4`).
+- **`.split-golden`** / **`.split-golden--reverse`** — Links/Rechts-Split im Goldenen
+  Schnitt (`1.618fr 1fr`). Bereits angewandt auf `page-grid` (Subseiten Inhalt/Aside)
+  und `.sound-band .container`. Token `--golden:1.618`.
+- Die alten `.grid`/`.grid--2`/`.grid--3` bleiben für einfache Kartenreihen bestehen.
 
 ### Typo
 
@@ -100,11 +122,25 @@ Breakpoints: **920px** (Layout-Stack, Nav scrollt horizontal) und **560px**
 - `assets/favicon.svg`, `assets/apple-touch-icon.png` (+ `.svg`-Quelle) — Holz-
   Gradient mit Schallwellen-Motiv.
 - `assets/photos/*-wood.{webp,jpg}` — Hero, Klangreise, Trommelkreis, Obertöne, OG.
-  Eingebunden via `<picture>` mit WebP + JPG-Fallback. **Nur die `-wood`-Varianten
-  existieren** (die früheren Versionen ohne Suffix wurden entfernt).
+  Eingebunden via `<picture>` mit WebP + JPG-Fallback (alle mit `?v=N`). **Nur die
+  `-wood`-Varianten existieren** (die früheren Versionen ohne Suffix wurden entfernt).
+  Die Bilder wurden am 2026-06-02 entsättigt/kühler getont; die unbearbeiteten
+  Holz-Originale liegen als Backup in `assets/photos/_orig-wood/` (**vor dem Deploy
+  entfernen/sperren**, sonst öffentlich abrufbar).
 
-Cache-Buster: `_headers` setzt `max-age=300, must-revalidate` für `*.css` und
-`*.html`, daher ist kein `?v=N`-Counter nötig (anders als in der alten Site).
+### Cache-Buster (Pflicht nach CSS-/JS-/Bild-Änderung)
+
+`_headers` setzt `max-age` (CSS/HTML 300 s, übrige Assets 1 Tag) — **`immutable` wurde
+am 2026-06-02 entfernt**, weil es klang.css UND Fotos nach einem Deploy bis zu ein Jahr
+lang gecacht hielt (Symptom: Startseite zeigte neue Farben, Unterseiten/Mobile noch die
+alten — Startseite hat CSS inline, Unterseiten laden klang.css).
+
+Da Dateinamen gleich bleiben, **bei jeder Änderung den `?v=N`-Counter bumpen**:
+- `klang.css`-`<link>` in allen 6 Unterseiten (404, impressum, datenschutz, obertoene,
+  klangreise, trommelkreis) — identisch halten. Aktuell `?v=2`.
+- Bild-URLs (in `index.html` + `assets/klang.css`, inkl. `og:image` und JSON-LD-`image`).
+  Aktuell `?v=2`.
+- `index.html` nutzt **inline-CSS** (kein eigener Counter nötig — deployt mit dem HTML).
 
 ---
 

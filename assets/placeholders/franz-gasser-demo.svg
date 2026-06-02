@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Franz Gasser Demo-Portrait</title>
+  <desc id="desc">Warme illustrative Demo-Darstellung einer Person in einem hellen Klangraum mit Schale und Trommel.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8ed"/>
+      <stop offset=".56" stop-color="#efe4d1"/>
+      <stop offset="1" stop-color="#d8c2a1"/>
+    </linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#b89162"/>
+      <stop offset=".52" stop-color="#e5c28e"/>
+      <stop offset="1" stop-color="#8a6a49"/>
+    </linearGradient>
+    <filter id="soft" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#493c2f" flood-opacity=".18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="1100" rx="34" fill="url(#bg)"/>
+  <path d="M0 782c148-68 275-74 394-19 151 70 281 58 506-67v404H0z" fill="#f8f0e3"/>
+  <path d="M113 189h674" stroke="#fffdf8" stroke-width="22" stroke-linecap="round" opacity=".62"/>
+  <path d="M150 252h382" stroke="#fffdf8" stroke-width="10" stroke-linecap="round" opacity=".44"/>
+  <circle cx="690" cy="247" r="112" fill="#fff6e7" opacity=".68"/>
+  <g fill="none" stroke="#d9bd83" stroke-linecap="round" opacity=".72">
+    <path d="M619 247c45-58 96-58 142 0" stroke-width="10"/>
+    <path d="M647 247c27-32 59-32 86 0" stroke-width="8"/>
+    <path d="M678 247c8-9 17-9 25 0" stroke-width="6"/>
+  </g>
+  <g filter="url(#soft)">
+    <path d="M309 706c10-126 71-214 164-214s154 88 164 214z" fill="#5e5a4f"/>
+    <circle cx="473" cy="351" r="112" fill="#b98861"/>
+    <path d="M354 337c33-94 149-134 231-60 39 35 50 80 40 131-24-38-62-64-118-74-62-12-111 0-153 3z" fill="#3f3b34"/>
+    <path d="M400 407c38 42 109 43 148 2" stroke="#6b4b37" stroke-width="9" stroke-linecap="round" fill="none" opacity=".45"/>
+    <path d="M356 716c53-52 102-78 147-78 42 0 91 26 146 78" fill="#70675a"/>
+  </g>
+  <g filter="url(#soft)">
+    <ellipse cx="345" cy="793" rx="210" ry="67" fill="#6f5437"/>
+    <ellipse cx="345" cy="776" rx="210" ry="67" fill="url(#wood)"/>
+    <ellipse cx="345" cy="760" rx="172" ry="42" fill="#f6e3bd"/>
+    <path d="M176 780c54 34 286 33 340-1" stroke="#6c4a2f" stroke-width="11" fill="none" opacity=".34"/>
+  </g>
+  <g filter="url(#soft)">
+    <circle cx="659" cy="816" r="94" fill="#a88450"/>
+    <circle cx="659" cy="816" r="70" fill="#ead8b1"/>
+    <circle cx="659" cy="816" r="26" fill="#f8f1df"/>
+    <path d="M569 816c58 39 122 39 180 0" stroke="#6f5636" stroke-width="9" stroke-linecap="round" fill="none" opacity=".38"/>
+  </g>
+  <path d="M157 932c160 42 391 41 586-11" stroke="#d4b57b" stroke-width="5" stroke-linecap="round" opacity=".48"/>
+  <path d="M217 970c117 22 303 20 466-8" stroke="#92765a" stroke-width="4" stroke-linecap="round" opacity=".22"/>
+</svg>

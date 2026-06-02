@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+  <title id="title">Klangmoment Demo-Grafik</title>
+  <desc id="desc">Abstrakte warme Wellen und Punkte als Demo-Motiv fuer Klang, Rhythmus und Freude.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff8ed"/>
+      <stop offset=".55" stop-color="#f2e4cf"/>
+      <stop offset="1" stop-color="#d9bd83"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8a7560"/>
+      <stop offset=".45" stop-color="#d9bd83"/>
+      <stop offset="1" stop-color="#587271"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-40%" width="140%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#403326" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="900" height="420" rx="28" fill="url(#bg)"/>
+  <g opacity=".32" fill="none" stroke="#fffaf0" stroke-width="18" stroke-linecap="round">
+    <path d="M99 110c88-56 162-56 250 0s163 56 250 0 125-56 202-9"/>
+    <path d="M93 315c89-52 164-52 251 0s164 52 253 0 128-52 205-7"/>
+  </g>
+  <g filter="url(#shadow)" fill="none" stroke="url(#line)" stroke-linecap="round">
+    <path d="M92 211c54 0 54-96 108-96s54 190 108 190 54-143 108-143 54 78 108 78 54-159 108-159 54 218 108 218 54-112 108-112" stroke-width="16"/>
+    <path d="M113 210h674" stroke-width="3" opacity=".36"/>
+  </g>
+  <g fill="#403b34">
+    <circle cx="200" cy="115" r="16"/>
+    <circle cx="308" cy="305" r="18"/>
+    <circle cx="416" cy="162" r="15"/>
+    <circle cx="524" cy="240" r="17"/>
+    <circle cx="632" cy="81" r="16"/>
+    <circle cx="740" cy="299" r="18"/>
+  </g>
+  <g fill="#fffaf0" opacity=".92">
+    <circle cx="200" cy="115" r="7"/>
+    <circle cx="308" cy="305" r="8"/>
+    <circle cx="416" cy="162" r="7"/>
+    <circle cx="524" cy="240" r="8"/>
+    <circle cx="632" cy="81" r="7"/>
+    <circle cx="740" cy="299" r="8"/>
+  </g>
+</svg>
