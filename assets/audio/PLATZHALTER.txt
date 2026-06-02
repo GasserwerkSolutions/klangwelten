@@ -1,0 +1,10 @@
+Hier die Hörprobe ablegen:
+
+    klangprobe.mp3
+
+Empfehlung: kurzer Ausschnitt (~20–30 Sekunden) einer Klangschale, eines
+Obertons oder Monochords. Eingebunden ist sie bereits auf der Startseite
+(Sektion "Obertöne", <audio>-Player). Sobald die Datei hier liegt, spielt
+der Player sie automatisch ab.
+
+Diese Platzhalter-Datei kann danach gelöscht werden.
